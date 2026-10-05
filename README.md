@@ -44,10 +44,12 @@ Su objetivo es facilitar el seguimiento de actividades, automatizar el cálculo 
 ### Registro de actividades
 
 ![Actividades](img/actividades.png)
+![Actividades](img/actividades2.png)
 
 ### Reportes y estadísticas
 
 ![Reportes](img/reportes.png)
+![Reportes](img/reportes2.png)
 
 ---
 
