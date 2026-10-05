@@ -88,6 +88,12 @@ GEHAC/
 
 ---
 
+### 🛢️ Diagrama E-R de la Base de Datos.
+
+![Diagrama](bd/diagrama.png)
+
+---
+
 ## 🚀 Instalación
 
 1. Clona este repositorio:
