@@ -1,0 +1,749 @@
+/* =====================================
+   RESET GENERAL
+===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* =====================================
+   BODY PRINCIPAL
+===================================== */
+body{
+
+    font-family:Arial,sans-serif;
+
+    display:flex;
+
+    min-height:100vh;
+
+    background:#f4f6f9;
+}
+
+
+/* =====================================
+   SIDEBAR PRINCIPAL
+===================================== */
+.sidebar{
+
+    width:230px;
+
+    height:100vh;
+
+    position:fixed;
+
+    background:#f9f9f9;
+
+    color:#0074b7;
+
+    padding-top:5px;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    border-right:1px solid #e0e0e0;
+
+    transition:.3s;
+
+    z-index:1001;
+}
+
+
+/* =====================================
+   SCROLL SIDEBAR
+===================================== */
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#5398c1;
+
+    border-radius:10px;
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:#f4f6f9;
+}
+
+
+/* =====================================
+   SIDEBAR COLAPSADO
+===================================== */
+.sidebar.collapsed{
+
+    width:60px;
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+.logo-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:5px 2px;
+}
+
+
+.logo{
+
+    width:120px;
+
+    max-width:100%;
+
+    height:auto;
+
+    object-fit:contain;
+
+    transition:.3s;
+}
+
+
+/* Hover logo */
+.logo:hover{
+
+    transform:scale(1.05);
+}
+
+
+/* Logo colapsado */
+.sidebar.collapsed .logo{
+
+    width:35px;
+}
+
+
+/* Contenedor logo colapsado */
+.sidebar.collapsed .logo-container{
+
+    padding:5px;
+
+    justify-content:center;
+}
+
+
+/* =====================================
+   LINK DEL LOGO
+===================================== */
+.logo-link{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+
+/* =====================================
+   LISTA SIDEBAR
+===================================== */
+.sidebar ul{
+
+    list-style:none;
+}
+
+
+/* =====================================
+   ENLACES SIDEBAR
+===================================== */
+.sidebar ul li{
+
+    position:relative;
+}
+
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:15px;
+
+    text-decoration:none;
+
+    color:#0074b7;
+
+    transition:.2s;
+}
+
+
+/* Hover */
+.sidebar ul li a:hover{
+
+    background:#eaf5fb;
+
+    color:#005a8c;
+}
+
+
+/* Iconos */
+.sidebar ul li a i{
+
+    min-width:20px;
+
+    margin-right:10px;
+
+    color:#0074b7;
+}
+
+
+/* Hover iconos */
+.sidebar ul li a:hover i{
+
+    color:#005a8c;
+}
+
+
+/* =====================================
+   LINK ACTIVO
+===================================== */
+.sidebar ul li a.active{
+
+    background:#eaf5fb;
+
+    color:#4031a1;
+
+    font-weight:600;
+}
+
+
+/* Línea lateral morada */
+.sidebar ul li a.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#4031a1;
+}
+
+
+/* Sidebar colapsado */
+.sidebar.collapsed span{
+
+    display:none;
+}
+
+
+.sidebar.collapsed a{
+
+    justify-content:center;
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
+.contenido{
+
+    margin-left:230px;
+
+    padding-top:145px;
+
+    padding-left:10px;
+
+    padding-right:10px;
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+    transition:.3s;
+}
+
+
+/* Sidebar colapsado */
+.contenido.collapsed{
+
+    margin-left:60px;
+}
+
+
+/* Ajustes dinámicos */
+.sidebar.collapsed ~ .contenido .top-header{
+
+    left:60px;
+}
+
+.sidebar.collapsed ~ .contenido .dashboard-section{
+
+    left:60px;
+}
+
+
+/* =====================================
+   HEADER SUPERIOR
+===================================== */
+.top-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    height:65px;
+
+    padding:0 25px;
+
+    background:#4031a1;
+
+    position:fixed;
+
+    top:0;
+
+    left:230px;
+
+    right:0;
+
+    z-index:1000;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+
+/* =====================================
+   BOTÓN HAMBURGUESA
+===================================== */
+#toggle-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+#toggle-btn:hover{
+
+    transform:scale(1.1);
+}
+
+
+/* =====================================
+   HEADER DERECHO
+===================================== */
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+.header-right ul{
+
+    list-style:none;
+}
+
+
+/* =====================================
+   SUBMENU
+===================================== */
+.submenu{
+
+    position:relative;
+}
+
+
+/* Botón submenu */
+.submenu-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 15px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+
+/* Hover */
+.submenu-toggle:hover{
+
+    background:rgba(255,255,255,.15);
+}
+
+
+/* Flecha */
+.submenu-arrow{
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+
+/* Mostrar flecha girada */
+.submenu.open .submenu-arrow{
+
+    transform:rotate(180deg);
+}
+
+
+/* =====================================
+   LISTA DESPLEGABLE
+===================================== */
+.submenu-list{
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    right:0;
+
+    width:220px;
+
+    list-style:none;
+
+    background:white;
+
+    margin-top:8px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    z-index:1000;
+}
+
+
+/* Mostrar submenu */
+.submenu.open .submenu-list{
+
+    display:block;
+}
+
+
+/* Opciones */
+.submenu-list li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 15px;
+
+    color:#333;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+    font-size:15px;
+}
+
+
+/* Hover opciones */
+.submenu-list li a:hover{
+
+    background:#cfd1d3;
+
+    color:black;
+}
+
+
+/* =====================================
+   IMAGEN PERFIL
+===================================== */
+.menu-avatar{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    transition:.3s;
+}
+
+
+.menu-avatar:hover{
+
+    transform:scale(1.05);
+}
+
+
+/* =====================================
+   SECCIÓN DASHBOARD
+===================================== */
+.dashboard-section{
+
+    background:white;
+
+    padding:15px;
+
+    position:fixed;
+
+    top:65px;
+
+    left:230px;
+
+    right:0;
+
+    z-index:999;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+
+/* Título */
+.header-title h3{
+
+    color:#797777c5;
+
+    font-size:20px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+.footer{
+
+    margin-top:auto;
+
+    padding:20px 30px;
+
+    background:#f4f6f9;
+
+    color:rgba(57,57,57,.98);
+
+    font-size:12px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:1;
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL INTERNO
+===================================== */
+.main-content{
+
+    padding:20px;
+
+    margin-top:80px; /* separa del header fijo */
+
+}
+
+
+/* GRID DE TARJETAS */
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+/* ===============================
+CARD CONTENEDOR
+=============================== */
+.card {
+    background: #fff; /* Fondo blanco */
+    border-radius: 16px; /* Bordes redondeados */
+    padding: 25px; /* Espacio interno */
+    margin-bottom: 30px; /* Separación con otros elementos */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* Sombra suave */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* ===============================
+TEXTO INICIAL
+=============================== */
+.card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* ===============================
+FORMULARIO
+=============================== */
+.form-producto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* grupo */
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+/* labels */
+.form-group label{
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* inputs 
+.form-group input{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.2s;
+}*/
+
+/* inputs */
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* focus */
+.form-group input:focus{
+    outline: none;
+    border-color: #0074b7;
+    box-shadow: 0 0 5px rgba(0,116,183,0.3);
+}
+
+/* campo ancho completo */
+.form-group.full{
+    grid-column: span 2;
+}
+
+/* input file */
+.form-group input[type="file"]{
+    padding: 6px;
+    background: #f4f6f9;
+    cursor: pointer;
+}
+
+/* ===============================
+BOTONES
+=============================== 
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}*/
+
+/* Contenedor de botones centrado */
+.form-buttons {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    gap: 40px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio arriba de los botones */
+}
+
+/* Botón Guardar - Verde */
+.form-buttons button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 50px;
+    background: #28a745; /* Verde */
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.form-buttons button:hover {
+    background: #218838; /* Verde más oscuro al hover */
+    transform: translateY(-2px);
+}
+
+/* Botón Cancelar - Rojo */
+.form-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 50px;
+    background: #dc3545; /* Rojo */
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Quita subrayado */
+    transition: background 0.2s, transform 0.2s;
+}
+
+.form-buttons a:hover {
+    background: #c82333; /* Rojo más oscuro al hover */
+    transform: translateY(-2px);
+}

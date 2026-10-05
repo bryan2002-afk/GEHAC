@@ -1,0 +1,714 @@
+/* =====================================
+   RESET GENERAL
+===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* =====================================
+   BODY PRINCIPAL
+===================================== */
+body{
+
+    font-family:Arial,sans-serif;
+
+    display:flex;
+
+    min-height:100vh;
+
+    background:#f4f6f9;
+}
+
+
+/* =====================================
+   SIDEBAR PRINCIPAL
+===================================== */
+.sidebar{
+
+    width:230px;
+
+    height:100vh;
+
+    position:fixed;
+
+    background:#f9f9f9;
+
+    color:#0074b7;
+
+    padding-top:5px;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    border-right:1px solid #e0e0e0;
+
+    transition:.3s;
+
+    z-index:1001;
+}
+
+
+/* =====================================
+   SCROLL SIDEBAR
+===================================== */
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#5398c1;
+
+    border-radius:10px;
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:#f4f6f9;
+}
+
+
+/* =====================================
+   SIDEBAR COLAPSADO
+===================================== */
+.sidebar.collapsed{
+
+    width:60px;
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+.logo-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:5px 2px;
+}
+
+
+.logo{
+
+    width:120px;
+
+    max-width:100%;
+
+    height:auto;
+
+    object-fit:contain;
+
+    transition:.3s;
+}
+
+
+/* Hover logo */
+.logo:hover{
+
+    transform:scale(1.05);
+}
+
+
+/* Logo colapsado */
+.sidebar.collapsed .logo{
+
+    width:35px;
+}
+
+
+/* Contenedor logo colapsado */
+.sidebar.collapsed .logo-container{
+
+    padding:5px;
+
+    justify-content:center;
+}
+
+
+/* =====================================
+   LINK DEL LOGO
+===================================== */
+.logo-link{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+
+/* =====================================
+   LISTA SIDEBAR
+===================================== */
+.sidebar ul{
+
+    list-style:none;
+}
+
+
+/* =====================================
+   ENLACES SIDEBAR
+===================================== */
+.sidebar ul li{
+
+    position:relative;
+}
+
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:15px;
+
+    text-decoration:none;
+
+    color:#0074b7;
+
+    transition:.2s;
+}
+
+
+/* Hover */
+.sidebar ul li a:hover{
+
+    background:#eaf5fb;
+
+    color:#005a8c;
+}
+
+
+/* Iconos */
+.sidebar ul li a i{
+
+    min-width:20px;
+
+    margin-right:10px;
+
+    color:#0074b7;
+}
+
+
+/* Hover iconos */
+.sidebar ul li a:hover i{
+
+    color:#005a8c;
+}
+
+
+/* =====================================
+   LINK ACTIVO
+===================================== */
+.sidebar ul li a.active{
+
+    background:#eaf5fb;
+
+    color:#4031a1;
+
+    font-weight:600;
+}
+
+
+/* Línea lateral morada */
+.sidebar ul li a.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#4031a1;
+}
+
+
+/* Sidebar colapsado */
+.sidebar.collapsed span{
+
+    display:none;
+}
+
+
+.sidebar.collapsed a{
+
+    justify-content:center;
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
+.contenido{
+
+    margin-left:230px;
+
+    padding-top:145px;
+
+    padding-left:10px;
+
+    padding-right:10px;
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+    transition:.3s;
+}
+
+
+/* Sidebar colapsado */
+.contenido.collapsed{
+
+    margin-left:60px;
+}
+
+
+/* Ajustes dinámicos */
+.sidebar.collapsed ~ .contenido .top-header{
+
+    left:60px;
+}
+
+.sidebar.collapsed ~ .contenido .dashboard-section{
+
+    left:60px;
+}
+
+
+/* =====================================
+   HEADER SUPERIOR
+===================================== */
+.top-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    height:65px;
+
+    padding:0 25px;
+
+    background:#4031a1;
+
+    position:fixed;
+
+    top:0;
+
+    left:230px;
+
+    right:0;
+
+    z-index:1000;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+
+/* =====================================
+   BOTÓN HAMBURGUESA
+===================================== */
+#toggle-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+#toggle-btn:hover{
+
+    transform:scale(1.1);
+}
+
+
+/* =====================================
+   HEADER DERECHO
+===================================== */
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+.header-right ul{
+
+    list-style:none;
+}
+
+
+/* =====================================
+   SUBMENU
+===================================== */
+.submenu{
+
+    position:relative;
+}
+
+
+/* Botón submenu */
+.submenu-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 15px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+
+/* Hover */
+.submenu-toggle:hover{
+
+    background:rgba(255,255,255,.15);
+}
+
+
+/* Flecha */
+.submenu-arrow{
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+
+/* Mostrar flecha girada */
+.submenu.open .submenu-arrow{
+
+    transform:rotate(180deg);
+}
+
+
+/* =====================================
+   LISTA DESPLEGABLE
+===================================== */
+.submenu-list{
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    right:0;
+
+    width:220px;
+
+    list-style:none;
+
+    background:white;
+
+    margin-top:8px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    z-index:1000;
+}
+
+
+/* Mostrar submenu */
+.submenu.open .submenu-list{
+
+    display:block;
+}
+
+
+/* Opciones */
+.submenu-list li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 15px;
+
+    color:#333;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+    font-size:15px;
+}
+
+
+/* Hover opciones */
+.submenu-list li a:hover{
+
+    background:#cfd1d3;
+
+    color:black;
+}
+
+
+/* =====================================
+   IMAGEN PERFIL
+===================================== */
+.menu-avatar{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    transition:.3s;
+}
+
+
+.menu-avatar:hover{
+
+    transform:scale(1.05);
+}
+
+
+/* =====================================
+   SECCIÓN DASHBOARD
+===================================== */
+.dashboard-section{
+
+    background:white;
+
+    padding:15px;
+
+    position:fixed;
+
+    top:65px;
+
+    left:230px;
+
+    right:0;
+
+    z-index:999;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+
+/* Título */
+.header-title h3{
+
+    color:#797777c5;
+
+    font-size:20px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+.footer{
+
+    margin-top:auto;
+
+    padding:20px 30px;
+
+    background:#f4f6f9;
+
+    color:rgba(57,57,57,.98);
+
+    font-size:12px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:1;
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL INTERNO
+===================================== */
+.main-content{
+
+    padding:20px;
+
+    margin-top:80px; /* separa del header fijo */
+
+}
+
+
+/* GRID DE TARJETAS */
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+
+/* TARJETAS */
+.card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+
+
+/* Hover */
+.card:hover{
+
+    transform:translateY(-5px);
+
+    cursor:pointer;
+}
+
+/* =====================================
+   ICONO TARJETA
+===================================== */
+.card-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#4031a1;
+}
+
+
+/* Icono */
+.card-icon i{
+
+    font-size:25px;
+
+    color:white;
+}
+
+/* =====================================
+   INFORMACIÓN TARJETA
+===================================== */
+.card-info{
+
+    flex:1;
+}
+
+
+/* TITULOS */
+.card-info h4{
+
+    color:#4031a1;
+
+    margin-bottom:5px;
+}
+
+
+.card-info p{
+
+    color:#666;
+
+    font-size:14px;
+}
+
+/* =====================================
+   ENLACE DE TARJETAS
+===================================== */
+.card-link{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    display:block;
+}
+
+
+/* Mantiene el tamaño dentro del grid */
+.card-link .card{
+
+    height:100%;
+}
+
+
+/* Efecto al pasar mouse */
+.card-link:hover .card{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 8px 15px rgba(0,0,0,.15);
+}

@@ -1,0 +1,39 @@
+
+
+
+<?php if (tiene_permiso('roles.php', 'CREAR')): ?>
+
+<?php endif; ?>
+
+
+
+<?php if (tiene_permiso('roles.php', 'EDITAR')): ?>
+
+<?php endif; ?>
+
+                                                    
+<?php if (tiene_permiso('roles.php', 'BORRAR')): ?>
+
+<?php endif; ?>
+
+
+                                                   
+<?php if (!tiene_permiso('roles.php', 'EDITAR') && !tiene_permiso('roles.php', 'BORRAR')): ?>         
+	<span class="text-muted">Lectura</span>                                            
+<?php endif; ?>
+
+
+
+
+/*=========================================
+= DOBLE VALIDACIÓN DE SEGURIDAD (¡Agregado!)
+=========================================*/
+// Validamos en el backend que el rol tenga permiso de 'BORRAR' en 'usuarios.php'
+if (!tiene_permiso('roles.php', 'BORRAR')) {
+    $_SESSION['mensaje'] = [
+        "tipo" => "error",
+        "texto" => "No tienes autorización para realizar esta acción. ❌"
+    ];
+    header("Location: roles.php");
+    exit();
+}
